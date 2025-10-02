@@ -1,26 +1,22 @@
-import { SignInButton, UserButton } from "@clerk/nextjs";
-import { Button } from "@/components/ui/button";
+"use client";
+import { SignUpButton, SignedOut, SignedIn, UserButton } from "@clerk/nextjs"
+import { Button } from "@/components/ui/button"
 
-// Small helper for Sign In
-function AuthButton() {
-  return (
-    <SignInButton mode="modal">
-      <Button variant="default">Sign In</Button>
-    </SignInButton>
-  );
-}
-
-// ✅ The actual Navbar component
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-6 py-4 bg-gray-100 border-b">
-      <h1 className="text-xl font-bold">Concept</h1>
-      {/* Show Clerk buttons */}
+    <nav className="flex justify-between items-center h-16 px-6 border-b bg-white">
+      <h1 className="text-lg font-bold">Concept</h1>
       <div>
-        <AuthButton />
-        {/* Later, when logged in, you can use <UserButton /> */}
-        {/* <UserButton afterSignOutUrl="/" /> */}
+        <SignedOut>
+          <SignUpButton mode="modal">
+            <Button variant="default">Sign Up</Button>
+          </SignUpButton>
+        </SignedOut>
+        <SignedIn>
+          <UserButton afterSignOutUrl="/" />
+        </SignedIn>
       </div>
     </nav>
-  );
+  )
 }
+
