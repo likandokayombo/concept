@@ -1,6 +1,4 @@
 
-
-
 "use client";
 
 import Link from "next/link";
@@ -42,7 +40,7 @@ export default function DashboardHome() {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 px-6 md:px-16">
+    <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white py-10 px-4 sm:px-6 md:px-16">
       <div className="max-w-5xl mx-auto relative flex flex-col items-center">
         {/* ---- Hamburger + Dashboard Header ---- */}
         <div className="flex flex-col mb-6 w-full items-start">
@@ -52,7 +50,7 @@ export default function DashboardHome() {
               <Button
                 variant="ghost"
                 size="icon"
-                className=" p-3 hover:scale-105 transition-transform duration-200"
+                className="p-3 hover:scale-105 transition-transform duration-200"
               >
                 <Menu className="h-8 w-8 text-black" />
               </Button>
@@ -88,14 +86,14 @@ export default function DashboardHome() {
           </div>
         </div>
 
-        {/* ---- Parent Card (Contains Two Cards) ---- */}
-        <Card className="shadow-lg border p-6 w-full max-w-5xl">
-          <CardContent className="flex flex-col md:flex-row gap-6 justify-center items-start">
+        {/* ---- Parent Card (Responsive) ---- */}
+        <Card className="shadow-lg border p-4 md:p-6 w-full max-w-5xl">
+          <CardContent className="flex flex-wrap gap-6 justify-center">
             {/* --- Welcome Back Card --- */}
-            <Card className="shadow-md border flex-1 min-w-[280px] max-w-md">
+            <Card className="shadow-md border flex-1 min-w-[280px] max-w-md w-full md:w-auto">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold">
-                  Welcome back, {user?.firstName || "Creator"} 👋
+                  Welcome back, {user?.firstName || "Creator"} 
                 </CardTitle>
                 <CardDescription>
                   Let’s generate unique branding ideas for your next project.
@@ -117,10 +115,10 @@ export default function DashboardHome() {
             </Card>
 
             {/* --- Premium Upgrade Card --- */}
-            <Card className="shadow-md border border-gray-200 flex-1 min-w-[280px] max-w-md">
+            <Card className="shadow-md border border-gray-200 flex-1 min-w-[280px] max-w-md w-full md:w-auto">
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-gray-900">
-                  Unlock Premium 🚀
+                  Unlock Premium 
                 </CardTitle>
                 <CardDescription>
                   Enjoy unlimited branding ideas, faster AI responses, and image
@@ -153,4 +151,3 @@ export default function DashboardHome() {
     </div>
   );
 }
-
